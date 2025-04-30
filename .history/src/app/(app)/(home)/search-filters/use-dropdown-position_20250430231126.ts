@@ -1,0 +1,18 @@
+import { RefObject } from 'react';
+
+export const useDropdownPosition = (
+  ref: RefObject<HTMLDivElement | null> | RefObject<HTMLDivElement>,
+) => {
+    const getDropdownPosition = () => {
+      if (!ref.current) return { top: 0, left: 0 };
+
+      const rect = ref.current.getBoundingClientRect();
+      const dropdownWidth = 240; //! Set your desired dropdown width here
+
+      //! Calculate the initial position of the dropdown
+      let left = rect.left + window.scrollX;
+      const top = rect.bottom + window.scrollY + 8; // 8px gap
+    }
+
+    return { getDropdownPosition };
+}

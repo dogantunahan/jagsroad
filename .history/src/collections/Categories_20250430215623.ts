@@ -25,12 +25,5 @@ export const Categories: CollectionConfig = {
       relationTo: "categories",
       hasMany: false,
     },
-    {
-      name: "subcategories",
-      type: "join",
-      collection: "categories",
-      on: "parent",
-      hasMany: true,
-    },
   ],
 }

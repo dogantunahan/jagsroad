@@ -17,7 +17,7 @@ const Layout = async ({ children }: Props) => {
 
   const data = await payload.find({
     collection: 'categories',
-    depth: 1, //? Populate subcategories, subcategories.[0] will be a type of "Category"
+    depth: 1, //? Populate subcategories
     pagination: false,
     where: {
       parent: {
@@ -31,7 +31,6 @@ const Layout = async ({ children }: Props) => {
     subcategories: (doc.subcategories?.docs ?? []).map((doc) => ({
       //! Beacuse of "depth: 1" we are confident "doc" will be a type of "Category"
       ...(doc as Category),
-      subcategories: undefined
     }))
   }))
 
@@ -43,7 +42,7 @@ const Layout = async ({ children }: Props) => {
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
-      <SearchFilters data={formattedData} />
+      <SearchFilters data={data} />
       <div className="flex-1 bg-[#F4F4F0]">{children}</div>
 
       <Footer />

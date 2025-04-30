@@ -19,18 +19,6 @@ export const Categories: CollectionConfig = {
       name: "color",
       type: "text",
     },
-    {
-      name: "parent",
-      type: "relationship",
-      relationTo: "categories",
-      hasMany: false,
-    },
-    {
-      name: "subcategories",
-      type: "join",
-      collection: "categories",
-      on: "parent",
-      hasMany: true,
-    },
+    
   ],
 }

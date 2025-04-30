@@ -31,6 +31,7 @@ export const Categories: CollectionConfig = {
       collection: "categories",
       on: "parent",
       hasMany: true,
+      validate: () => 
     },
   ],
 }
